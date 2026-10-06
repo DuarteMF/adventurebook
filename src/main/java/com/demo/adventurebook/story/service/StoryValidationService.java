@@ -32,15 +32,6 @@ public class StoryValidationService {
 
     private static final int MAX_CONSEQUENCE_AMOUNT = 10;
 
-    private static Integer parseConsequenceAmount(String value) {
-        if (value == null) return null;
-        try {
-            return Integer.parseInt(value.strip());
-        } catch (NumberFormatException e) {
-            return null;
-        }
-    }
-
     public ValidationResult validate(BookDto book) {
         if (book == null) {
             return ValidationResult.invalid("Book cannot be null");
@@ -174,6 +165,15 @@ public class StoryValidationService {
         Integer amount = parseConsequenceAmount(value);
         if (amount == null || amount < 1 || amount > MAX_CONSEQUENCE_AMOUNT) {
             errors.add(String.format("Section '%s' has an option with an invalid consequence value: '%s' (expected an integer from 1 to %d)", sectionId, value, MAX_CONSEQUENCE_AMOUNT));
+        }
+    }
+
+    private Integer parseConsequenceAmount(String value) {
+        if (value == null) return null;
+        try {
+            return Integer.parseInt(value.strip());
+        } catch (NumberFormatException e) {
+            return null;
         }
     }
 }

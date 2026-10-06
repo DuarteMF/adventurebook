@@ -23,9 +23,7 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.List;
 
 import static org.mockito.ArgumentMatchers.*;
-import static org.mockito.Mockito.doThrow;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
@@ -231,8 +229,8 @@ class StoryControllerTest {
 
         verify(storyService).createStory(argThat(book ->
                 book.getTitle().equals("Test Story") &&
-                book.getAuthor().equals("Test Author") &&
-                book.getDifficulty() == Difficulty.EASY
+                        book.getAuthor().equals("Test Author") &&
+                        book.getDifficulty() == Difficulty.EASY
         ));
     }
 
