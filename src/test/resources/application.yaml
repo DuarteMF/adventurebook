@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:adventurebook-test;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: create-drop
+
+app:
+  book-loader:
+    enabled: false

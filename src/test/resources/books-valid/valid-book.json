@@ -1,0 +1,68 @@
+{
+  "title": "The Golden Compass Quest",
+  "author": "Alistair Sterling",
+  "difficulty": "MEDIUM",
+  "sections": [
+    {
+      "id": "1",
+      "text": "You arrive at the edge of the Whispering Woods. Two trails diverge into the misty forest.",
+      "type": "BEGIN",
+      "options": [
+        {
+          "description": "Follow the lantern-lit stone path",
+          "gotoId": "10"
+        },
+        {
+          "description": "Take the overgrown dirt trail along the creek",
+          "gotoId": "20",
+          "consequence": {
+            "type": "LOSE_HEALTH",
+            "value": "2",
+            "text": "Thorny brambles scratch your arms as you push through."
+          }
+        }
+      ]
+    },
+    {
+      "id": "10",
+      "text": "The stone path leads you to a tranquil glade where a magical spring gently bubbles.",
+      "type": "NODE",
+      "options": [
+        {
+          "description": "Drink from the crystal spring",
+          "gotoId": "30",
+          "consequence": {
+            "type": "GAIN_HEALTH",
+            "value": "5",
+            "text": "The rejuvenating water restores your vitality."
+          }
+        },
+        {
+          "description": "Proceed toward the ancient ruin",
+          "gotoId": "40"
+        }
+      ]
+    },
+    {
+      "id": "20",
+      "text": "Following the creek, you discover an old wooden footbridge crossing the rushing water.",
+      "type": "NODE",
+      "options": [
+        {
+          "description": "Cross the bridge toward the ruin",
+          "gotoId": "40"
+        }
+      ]
+    },
+    {
+      "id": "30",
+      "text": "Rejuvenated by the spring water, you reach the summit overlooking the sunlit valley.",
+      "type": "END"
+    },
+    {
+      "id": "40",
+      "text": "Inside the ruin, you discover the Golden Compass resting upon a marble altar.",
+      "type": "END"
+    }
+  ]
+}
